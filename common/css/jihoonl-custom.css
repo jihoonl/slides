@@ -1,0 +1,29 @@
+
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.title-header {
+  height: 60%;
+}
+
+.title-body {
+  height:40%;
+}
+
+.reveal .section-header {
+  height: 14%;
+  text-align: left;
+  border-bottom: solid !important;
+}
+
+.section-body{
+  height: 85%;
+  text-align: left;
+  padding-top: 2% !important;
+}
+
