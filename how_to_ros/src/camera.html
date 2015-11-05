@@ -1,0 +1,84 @@
+<section id="camera0">
+<div class="section-header">
+  <h2>Camera를 ROS에서 사용하기</h2>
+</div>
+<div class="section-body">
+  <ul>
+    <li>Webcam 구동</li>
+    <li>Image Connector Fork 및 Clone 하기</li>
+    <li>Image Connector compile 하기</li> 
+    <li>Image Connector 실행및 Webcam과 연동하기</li>
+</div>
+</section>
+<section id="camera1">
+<div class="section-header">
+  <h2>Webcam 구동하기</h2>
+</div>
+<div class="section-body">
+<strong>http://wiki.ros.org/usb_cam</strong>
+<pre><code class="stretch">
+> sudo apt-get install ros-indigo-usb-cam ros-indigo-image-view
+
+# Camera를 연결하고...
+> roslaunch usb_cam usb_cam-test.launch
+</code></pre>
+<strong>새로운 터미널에서.. </strong>
+<pre><code class="stretch">
+> source (my workspace)/devel/setup.bash
+> rostopic list
+
+/rosout
+/rosout_agg
+/usb_cam/camera_info
+/usb_cam/image_raw
+/usb_cam/image_raw/compressed
+/usb_cam/image_raw/compressed/parameter_descriptions
+/usb_cam/image_raw/compressed/parameter_updates
+</code></pre>
+<strong>데모 보여주기</strong>
+</div>
+</section>
+<section id="camera2">
+</section>
+<section id="camera3">
+<div class="section-header">
+  <h3>Image Connector Fork하기</h3>
+</div>
+<div class="section-body">
+  <a href="https://github.com/jihoonl/image_connector_example">https://github.com/jihoonl/image_connector_example</a>
+  <img src="imgs/fork.png"></img>
+</div>
+</section>
+<section id="camera4">
+<div class="section-header">
+  <h3>Image Connector clone 및 컴파일하기</h3>
+</div>
+<div class="section-body">
+<pre><code class="stretch" style="font-size: 25px">
+> source (my workspace)/devel/setup.bash
+
+> cd (my workspace)/src
+
+> git clone (Your forked image connector repository)
+
+> catkin build 
+</code></pre>
+</div>
+</section>
+<section id="camera5">
+<div class="section-header">
+  <h3>실행 및 webcam 연동하기</h3>
+</div>
+<div class="section-body">
+<strong>터미널에서</strong>
+<pre><code class="stretch" style="font-size: 25px">
+> source (my workspace)/devel/setup.bash
+> roslaunch usb_cam usb_cam-test.launch 
+</code></pre>
+<strong>새 터미널에서</strong>
+<pre><code class="stretch" style="font-size: 20px">
+> source (my workspace)/devel/setup.bash
+> rosrun image_connector image_connector_node image:=(camera topic)
+</code></pre>
+</div>
+</section>

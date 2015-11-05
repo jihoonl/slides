@@ -1,0 +1,122 @@
+<section id="turtlesim1">
+<div class="section-header">
+  <h2>Turtlesim</h2>
+</div>
+<div class="section-body">
+  <h3> 터틀심 움직이기</h3>
+  <ul>
+    <li>Catkin Python 패키지 만들기</li>
+    <li>거북이 제어하는 파이썬 코드 작성하기</li> 
+    <li>컴파일하기</li>
+    <li>테스트하기</li>
+  </ul>
+<p>Catkin패키지 만들기</p>
+<pre><code class="stretch"># Repository Clone한 디렉토리를 들어갑니다.
+> cd my_repo
+
+# 패키지 생성          <패키지 이름>    <의존성 패키지들>
+> catkin_create_pakcage twist_commander rospy geometry_msgs 
+</code></pre>
+</div>
+</section>
+<section id="turtlesim2">
+<div class="section-header">
+  <h2>Catkin Python 패키지 만들기1</h2>
+</div>
+<div class="section-body">
+<strong>CMakeLists.txt</strong>
+<pre><code class="stretch">cmake_minimum_required(VERSION 2.8.3)
+project(twist_commander)
+
+find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
+  rospy
+)
+catkin_python_setup()
+catkin_package()
+</code></pre>
+<strong>setup.py</strong>
+<pre><code class="stretch">#!/usr/bin/env python
+
+from distutils.core import setup
+from catkin_pkg.python_setup import generate_distutils_setup
+
+d = generate_distutils_setup(
+    packages=['twist_commander'],
+    package_dir={'': 'src'},
+)
+
+setup(**d)
+</code></pre>
+</div>
+</section>
+<section id="turtlesim3">
+<div class="section-header">
+  <h2>Catkin Python 패키지 만들기2</h2>
+</div>
+<div class="section-body">
+<strong>package.xml</strong>
+<pre><code class="stretch"><?xml version="1.0"?>
+<package>
+  <name>twist_commander</name>
+  <version>0.0.0</version>
+  <description>
+    Publishes Twist Command message to control turtlesim or Kobuki
+  </description>
+
+  <maintainer email="your email address">Your name</maintainer>
+  <license>BSD</license>
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/twist_commander</url> -->
+  <author>Your name</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+
+</package>
+</code></pre>
+</div>
+</section>
+<section id="turtlesim4">
+<div class="section-header">
+  <h2>Twist Commander!</h2>
+</div>
+<div class="section-body">
+ <p>scripts 디렉토리를 패키지내의 생성후에 디렉토리내에 아래 파일을 만듭니다</p>
+ <a href="https://github.com/jihoonl/ros_beginners/blob/master/twist_commander/scripts/command_turtle.py">command_turtle.py</a>
+</div>
+</section>
+<section id="turtlesim5">
+<div class="section-header">
+  <h2>컴파일 및 실행하기</h2>
+</div>
+<div class="section-body">
+<strong>Terminal에서</strong>
+<pre><code class="stretch">> source (my workspace)/devel/setup.bash
+> roscore
+</code></pre>
+<strong>새로운 터미널에서</strong>
+<pre><code class="stretch">
+> source (my workspace)/devel/setup.bash
+> rostopic echo /turtle1/cmd_vel
+</code></pre>
+<strong>또다른 새로운 터미널에서</strong>
+<pre><code class="stretch"># Move to (my workspace)
+> source (my workspace)/devel/setup.bash
+> catkin build
+...
+> rosrun twist_commander command_turtle 
+</code></pre>
+</div>
+</section>
+<section id="turtlesim6">
+<div class="section-header">
+  <h2>거북이테스트 </h2>
+</div>
+<div class="section-body">
+ <p>손들어서 불러주세요</p>
+</div>
+</section>
