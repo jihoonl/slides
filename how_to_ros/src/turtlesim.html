@@ -1,3 +1,23 @@
+<section id="turtlesim0">
+<div class="section-header">
+  <h2>Turtlesim</h2>
+</div>
+<div class="section-body">
+  <h3> 터틀심 살펴보기</h3>
+<pre><code class="stretch">> roscore
+# 새창을 열어서
+> rosrun turtlesim turtlesim_node
+# 또 다른 창을 열어서
+> rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+> rosrun turtlesim turtle_teleop_key
+</code></pre>
+</div>
+</section>
 <section id="turtlesim1">
 <div class="section-header">
   <h2>Turtlesim</h2>
@@ -98,9 +118,12 @@ setup(**d)
 <pre><code class="stretch">> source (my workspace)/devel/setup.bash
 > roscore
 </code></pre>
+<strong>새 Terminal에서</strong>
+<pre><code class="stretch">> source (my workspace)/devel/setup.bash
+> rosrun turtlesim turtlesim_node 
+</code></pre>
 <strong>새로운 터미널에서</strong>
-<pre><code class="stretch">
-> source (my workspace)/devel/setup.bash
+<pre><code class="stretch">> source (my workspace)/devel/setup.bash
 > rostopic echo /turtle1/cmd_vel
 </code></pre>
 <strong>또다른 새로운 터미널에서</strong>
