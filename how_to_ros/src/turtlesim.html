@@ -35,7 +35,7 @@
 > cd my_repo
 
 # 패키지 생성          <패키지 이름>    <의존성 패키지들>
-> catkin_create_pakcage twist_commander rospy geometry_msgs 
+> catkin_create_pkg twist_commander rospy geometry_msgs 
 </code></pre>
 </div>
 </section>
@@ -131,7 +131,7 @@ setup(**d)
 > source (my workspace)/devel/setup.bash
 > catkin build
 ...
-> rosrun twist_commander command_turtle 
+> rosrun twist_commander command_turtle.py
 </code></pre>
 </div>
 </section>
@@ -140,6 +140,10 @@ setup(**d)
   <h2>거북이테스트 </h2>
 </div>
 <div class="section-body">
- <p>손들어서 불러주세요</p>
+  <p>command_turtleo.py에서 변경해야할 사항</p>
+  <ul>
+    <li>topic_name을 /mobile_base/commands/velocity로 변경</li>
+    <li>Twist 메세지들의 속도를 로봇에 맞춰서 하향 조정</li>
+  </ul>
 </div>
 </section>
